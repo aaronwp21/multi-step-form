@@ -131,14 +131,14 @@ function UserForm() {
         </div>
         <button
           onClick={() => onUpdatePageNum(0)}
-          className="absolute left-0 bottom-[-75px] py-2 rounded-lg text-cool-grey font-semibold"
+          className="absolute left-0 bottom-[-77px] py-2 rounded-lg text-cool-grey font-semibold"
         >
           Go Back
         </button>
         <button
           type="submit"
           disabled={isSubmitting || !isValid}
-          className="absolute right-0 bottom-[-75px] bg-primary py-3 px-6 rounded-lg text-primary-active disabled:bg-cool-grey"
+          className="absolute right-0 bottom-[-80px] bg-primary py-3 px-6 rounded-lg text-primary-active disabled:bg-cool-grey"
         >
           Next Step
         </button>
