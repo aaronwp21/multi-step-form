@@ -15,7 +15,7 @@ function Summary() {
   return (
         <>
       {confirmed ? (
-        <div className="self-center h-full flex items-center">
+        <div className="self-center h-full flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <Image src={'/check.png'} alt="Check icon" height={80} width={80} />
             <h2 className="text-3xl text-primary font-bold">Thank you!</h2>
