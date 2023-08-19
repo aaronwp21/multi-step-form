@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FormContext } from './contexts/form.context';
 
 function Summary() {
-  const { plan, frequency, userInfo, confirmed, onUpdatePageNum } =
+  const { plan, frequency, userInfo, confirmed, onUpdateConfirmed, onUpdatePageNum } =
     useContext(FormContext);
 
   const plans = ['Basic', 'Advanced', 'Pro'];
@@ -13,7 +13,7 @@ function Summary() {
   const yearlyPrices = ['£50/yr', '£75/yr', '£100/yr'];
 
   return (
-        <>
+    <>
       {confirmed ? (
         <div className="self-center h-full flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
@@ -70,10 +70,24 @@ function Summary() {
               )}
             </div>
           </div>
+          <div className='hidden sm:inline-block'>
+            <button
+              onClick={() => onUpdatePageNum(1)}
+              className="absolute py-2 text-cool-grey font-semibold sm:bottom-6 sm:left-8"
+            >
+              Go Back
+            </button>
+            <button
+              onClick={() => onUpdateConfirmed()}
+              className="bg-primary py-3 px-6 rounded-lg text-primary-active hidden sm:inline-block sm:absolute sm:bottom-4 sm:right-0 sm:mr-8"
+            >
+              Confirm
+            </button>
+          </div>
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default Summary
+export default Summary;

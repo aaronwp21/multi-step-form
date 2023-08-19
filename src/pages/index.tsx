@@ -78,7 +78,7 @@ export default function Home() {
           <div className={`${confirmed ? 'hidden' : ''} flex justify-between px-[5%]`}>
             <button
               onClick={() => onUpdatePageNum(1)}
-              className="py-2 rounded-lg text-cool-grey font-semibold"
+              className="py-2 text-cool-grey font-semibold"
             >
               Go Back
             </button>
