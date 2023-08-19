@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { FormContext } from '@/components/contexts/form.context';
+import SelectPlan from '@/components/SelectPlan';
 
 export default function Home() {
   const { pageNum } = useContext(FormContext);
 
   return (
-    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),minmax(69px,1fr)]">
+    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),minmax(69px,75px)]">
       <ol className="row-start-1 col-start-1 bg-secondary flex justify-center gap-4 pt-12">
         <li className="flex items-start gap-4">
           <p
@@ -47,17 +48,21 @@ export default function Home() {
           </div>
         </li>
       </ol>
-      <div className='row-start-1 row-end-3 col-start-1 z-50 flex pt-24'>
-        <div className='w-[90%] h-[95%] m-auto bg-white rounded-xl p-8'>
-          
+      <div className="row-start-1 row-end-3 col-start-1 z-50 flex pt-24">
+        <div className="w-[90%] h-[95%] m-auto bg-white rounded-xl p-8">
+          {pageNum === 0 ? (
+            <SelectPlan />
+          ) : pageNum === 1 ? (
+            // <UserForm />
+            <div>Page 2</div>
+          ) : (
+            // <Summary />
+            <div>Page 3</div>
+          )}
         </div>
       </div>
-      <div className='bg-light-grey row-start-2 col-start-1'>
-
-      </div>
-      <div>
-        footer
-      </div>
+      <div className="bg-light-grey row-start-2 col-start-1"></div>
+      <div>footer</div>
     </div>
   );
 }
