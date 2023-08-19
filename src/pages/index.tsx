@@ -3,7 +3,7 @@ import { FormContext } from '@/components/contexts/form.context';
 import SelectPlan from '@/components/SelectPlan';
 
 export default function Home() {
-  const { pageNum } = useContext(FormContext);
+  const { pageNum, onUpdatePageNum } = useContext(FormContext);
 
   return (
     <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),minmax(69px,75px)]">
@@ -62,7 +62,20 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-light-grey row-start-2 col-start-1"></div>
-      <div>footer</div>
+      <div className='grid items-center'>
+        {pageNum === 0 ? (
+          <div className='justify-self-end pr-[5%]'>
+            <button onClick={() => onUpdatePageNum(1)} className="bg-primary py-3 px-6 rounded-lg text-primary-active">Next Step</button>
+          </div>
+        ) : pageNum === 1 ? (
+          <div className='flex items-center justify-between px-[5%]'>
+            <button onClick={() => onUpdatePageNum(0)} className='text-cool-grey font-semibold'>Go back</button>
+            <button onClick={() => onUpdatePageNum(2)} className="bg-primary py-3 px-6 rounded-lg text-primary-active">Next Step</button>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 }
