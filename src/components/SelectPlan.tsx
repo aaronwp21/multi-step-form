@@ -10,7 +10,7 @@ function SelectPlan() {
   return (
     <>
       <div className="flex flex-col gap-2 mb-8">
-        <h2 className="text-2xl text-primary font-bold">Select your plan</h2>
+        <h2 className="text-3xl text-primary font-bold">Select your plan</h2>
         <p className="text-cool-grey font-semibold">
           Choose between monthly or yearly billing.
         </p>

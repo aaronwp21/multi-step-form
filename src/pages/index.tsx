@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { FormContext } from '@/components/contexts/form.context';
 import SelectPlan from '@/components/SelectPlan';
+import UserForm from '@/components/UserForm';
 
 export default function Home() {
   const { pageNum, onUpdatePageNum } = useContext(FormContext);
 
   return (
-    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),minmax(69px,75px)]">
+    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),75px]">
       <ol className="row-start-1 col-start-1 bg-secondary flex justify-center gap-4 pt-12">
         <li className="flex items-start gap-4">
           <p
@@ -49,12 +50,11 @@ export default function Home() {
         </li>
       </ol>
       <div className="row-start-1 row-end-3 col-start-1 z-50 flex pt-24">
-        <div className="w-[90%] h-[95%] m-auto bg-white rounded-xl p-8">
+        <div className="w-[90%] h-[95%] m-auto bg-white rounded-xl p-8 relative">
           {pageNum === 0 ? (
             <SelectPlan />
           ) : pageNum === 1 ? (
-            // <UserForm />
-            <div>Page 2</div>
+            <UserForm />
           ) : (
             // <Summary />
             <div>Page 3</div>
@@ -68,10 +68,7 @@ export default function Home() {
             <button onClick={() => onUpdatePageNum(1)} className="bg-primary py-3 px-6 rounded-lg text-primary-active">Next Step</button>
           </div>
         ) : pageNum === 1 ? (
-          <div className='flex items-center justify-between px-[5%]'>
-            <button onClick={() => onUpdatePageNum(0)} className='text-cool-grey font-semibold'>Go back</button>
-            <button onClick={() => onUpdatePageNum(2)} className="bg-primary py-3 px-6 rounded-lg text-primary-active">Next Step</button>
-          </div>
+          <div></div>
         ) : (
           <div></div>
         )}
