@@ -32,7 +32,7 @@ function SelectPlan() {
               width={30}
             />
           </div>
-          <div className="grid grid-cols-[max-content]">
+          <div className="grid grid-cols-[max-content] sm:grid-cols-1">
             <p className="text-primary text-lg font-semibold">Basic</p>
             <p className="text-cool-grey text-sm font-bold">
               {frequency === true ? '£5/mo' : '£50/yr'}
@@ -62,7 +62,7 @@ function SelectPlan() {
               width={30}
             />
           </div>
-          <div className="grid grid-cols-[max-content]">
+          <div className="grid grid-cols-[max-content] sm:grid-cols-1">
             <p className="text-primary text-lg font-semibold">Advanced</p>
             <p className="text-cool-grey text-sm font-bold">
               {frequency === true ? '£7.50/mo' : '£75/yr'}
@@ -92,7 +92,7 @@ function SelectPlan() {
               width={30}
             />
           </div>
-          <div className="grid grid-cols-[max-content]">
+          <div className="grid grid-cols-[max-content] sm:grid-cols-1">
             <p className="text-primary text-lg font-semibold">Pro</p>
             <p className="text-cool-grey text-sm font-bold">
               {frequency === true ? '£10/mo' : '£100/yr'}

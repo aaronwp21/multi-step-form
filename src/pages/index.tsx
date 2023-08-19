@@ -8,7 +8,7 @@ export default function Home() {
   const { pageNum, confirmed, onUpdatePageNum, onUpdateConfirmed } = useContext(FormContext);
 
   return (
-    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),75px] sm:w-[80%] sm:min-w-[630px] sm:max-w-[880px] sm:py-[10%] sm:m-auto sm:grid-rows-1 sm:grid-cols-[1fr,2fr] sm:bg-clip-content sm:bg-white">
+    <div className="h-[100vh] grid grid-rows-[minmax(175px,2fr),minmax(450px,3fr),75px] sm:max-h-[1000px] sm:min-h-[800px] sm:w-[80%] sm:min-w-[630px] sm:max-w-[880px] sm:py-[10%] sm:m-auto sm:grid-rows-1 sm:grid-cols-[1fr,2fr] sm:bg-clip-content sm:bg-white">
       <ol className="row-start-1 col-start-1 bg-secondary flex justify-center gap-4 pt-12 sm:flex-col sm:justify-start sm:pl-8 sm:m-4 sm:rounded-lg sm:gap-8 sm:min-w-[200px] sm:max-w-[250px]">
         <li className="flex items-start gap-4">
           <p
