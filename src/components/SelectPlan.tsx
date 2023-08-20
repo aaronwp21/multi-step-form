@@ -107,7 +107,7 @@ function SelectPlan() {
           </div>
         </div>
       </div>
-      <div className="bg-light-grey p-3 flex items-center justify-center gap-6 rounded-md">
+      <div className="bg-light-grey p-3 flex items-center justify-center gap-6 rounded-md min-w-[250px]">
         <p
           className={`text-sm ${
             frequency === true ? 'text-primary' : 'text-cool-grey'
