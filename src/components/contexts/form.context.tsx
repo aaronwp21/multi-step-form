@@ -12,11 +12,13 @@ type FormContextProps = {
   onUpdateFrequency: () => void;
   onUpdateUserInfo: (data: userInfo) => void;
   onUpdateConfirmed: () => void;
+  setShowModal: (bool: boolean) => void;
   pageNum: number;
   plan: number;
   frequency: boolean;
   userInfo: userInfo;
   confirmed: boolean;
+  showModal: boolean;
 };
 
 export const FormContext = createContext<FormContextProps>({
@@ -25,11 +27,13 @@ export const FormContext = createContext<FormContextProps>({
   onUpdateFrequency: () => null,
   onUpdateUserInfo: () => null,
   onUpdateConfirmed: () => null,
+  setShowModal: () => null,
   pageNum: 0,
   plan: 0,
   frequency: true,
   userInfo: { name: '', email: '', phoneNumber: '' },
   confirmed: false,
+  showModal: false,
 });
 
 export const FormProvider = ({ children }: React.PropsWithChildren) => {
@@ -42,6 +46,7 @@ export const FormProvider = ({ children }: React.PropsWithChildren) => {
     phoneNumber: '',
   });
   const [confirmed, setConfirmed] = useState(false);
+  const [showModal, changeShowModal] = useState(false);
 
   const onUpdatePageNum = useCallback((num: number) => {
     setPageNum(num);
@@ -70,6 +75,10 @@ export const FormProvider = ({ children }: React.PropsWithChildren) => {
     setConfirmed(true);
   }, [])
 
+  const setShowModal = useCallback((bool: boolean) => {
+    changeShowModal(bool);
+  }, [])
+
   return (
     <FormContext.Provider
       value={{
@@ -78,11 +87,13 @@ export const FormProvider = ({ children }: React.PropsWithChildren) => {
         onUpdateFrequency,
         onUpdateUserInfo,
         onUpdateConfirmed,
+        setShowModal,
         pageNum,
         plan,
         frequency,
         userInfo,
-        confirmed
+        confirmed,
+        showModal
       }}
     >
       {children}

@@ -50,7 +50,7 @@ export default function Home() {
           </div>
         </li>
       </ol>
-      <div className="row-start-1 row-end-3 col-start-1 sm:col-start-2 z-50 flex pt-24 sm:pt-0 sm:mb-4 sm:relative">
+      <div className="row-start-1 row-end-3 col-start-1 sm:col-start-2 z-40 flex pt-24 sm:pt-0 sm:mb-4 sm:relative">
         <div className="w-[90%] h-[95%] m-auto bg-white rounded-xl p-8 relative sm:w-full sm:h-full sm:py-16 sm:max-w-[600px]">
           {pageNum === 0 ? (
             <SelectPlan />
