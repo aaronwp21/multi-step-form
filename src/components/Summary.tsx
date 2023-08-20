@@ -1,16 +1,54 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import { FormContext } from './contexts/form.context';
 
 function Summary() {
-  const { plan, frequency, userInfo, confirmed, onUpdateConfirmed, onUpdatePageNum } =
-    useContext(FormContext);
+  const {
+    plan,
+    frequency,
+    userInfo,
+    confirmed,
+    onUpdateConfirmed,
+    onUpdatePageNum,
+  } = useContext(FormContext);
 
   const plans = ['Basic', 'Advanced', 'Pro'];
 
   const monthlyPrices = ['£5/mo', '£7.50/mo', '£10/mo'];
 
   const yearlyPrices = ['£50/yr', '£75/yr', '£100/yr'];
+
+  const onConfirm = async () => {
+    try {
+      const subscriptionObj = {
+        plan: plans[plan],
+        frequency: frequency ? 'Monthly' : 'Yearly',
+        cost: frequency ? monthlyPrices[plan] : yearlyPrices[plan]
+      }
+      const accountObj = {
+        name: userInfo.name,
+        email: userInfo.email,
+        phoneNumber: userInfo.phoneNumber ? userInfo.phoneNumber : null,
+        subscription: subscriptionObj
+      }
+      const response = await fetch(`/api/account/${userInfo.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          accountObj: accountObj
+        })
+      })
+      if (!response.ok) {
+        throw response;
+      }
+      const res = await response.json();
+      onUpdateConfirmed();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -70,7 +108,7 @@ function Summary() {
               )}
             </div>
           </div>
-          <div className='hidden sm:inline-block'>
+          <div className="hidden sm:inline-block">
             <button
               onClick={() => onUpdatePageNum(1)}
               className="absolute py-2 text-cool-grey font-semibold sm:bottom-6 sm:left-8"
@@ -78,7 +116,7 @@ function Summary() {
               Go Back
             </button>
             <button
-              onClick={() => onUpdateConfirmed()}
+              onClick={() => onConfirm()}
               className="bg-primary py-3 px-6 rounded-lg text-primary-active hidden sm:inline-block sm:absolute sm:bottom-4 sm:right-0 sm:mr-8"
             >
               Confirm
